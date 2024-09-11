@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function main() {
+    let x = 0;
+    let total = 0;
+    let level, newLevel;
+
+    // Getting the current level from the user
+    while (true) {
+        try {
+            level = parseInt(prompt("What level are you?"));
+            if (isNaN(level)) throw "Please enter a number...";
+            break;
+        } catch (error) {
+            console.log("Please enter a number...");
+        }
+    }
+
+    // Getting the desired level from the user
+    while (true) {
+        try {
+            newLevel = parseInt(prompt("What level do you want to be?"));
+            if (isNaN(newLevel)) throw "Please enter a number...";
+            break;
+        } catch (error) {
+            console.log("Please enter a number...");
+        }
+    }
+
+    // Calculating the total runes required
+    for (let i = 0; i < (newLevel - level); i++) {
+        x = ((level + 81) - 92) * 0.02;
+        if (x < 0) x = 0;
+        let runeCost = Math.floor(((x + 0.1) * Math.pow((level + 81), 2)) + 1);
+        level += 1;
+        total += runeCost;
+    }
+
+    console.log(`You need ${Math.floor(total)} runes to get to level ${newLevel}`);
+
+    // Asking if the user wants another calculation
+    let userInput = prompt("Would you like another calculation? (yes/no)").toLowerCase();
+    if (userInput === "yes") {
+        main();
+    } else {
+        return;
+    }
+}
+
+// Start the program
+main();
+
+    </script>
+    
+</body>
+</html>
