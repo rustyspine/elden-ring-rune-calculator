@@ -1,4 +1,8 @@
-special{
+body{
+    color: purple;
+    font-size: xx-large;
+}
+p{
     color: purple;
     font-size: xx-large;
 }
