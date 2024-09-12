@@ -10,12 +10,12 @@
     <label for="level">Enter current level:</label>
     <input type="number" id="level" required><br>
 
-    <label for="target level">Enter target level:</label>
-    <input type="number" id="targer level" required><br>
+    <label for="newLevel">Enter target level:</label>
+    <input type="number" id="newLevel" required><br>
 
     <button onclick="calculateSum()">Calculate Sum</button>
 
-
+    <div id= "result"></div>
     <script>
         function calculateSum() {
     let x = 0;
@@ -23,26 +23,21 @@
     let level, newLevel;
 
     // Getting the current level from the user
-    while (true) {
-        try {
+    
             level = parseInt(document.getElementById("level").value);
-            if (isNaN(level)) throw "Please enter a number...";
-            break;
-        } catch (error) {
-            console.log("Please enter a number...");
-        }
-    }
+            newLevel = parseInt(document.getElementById("newLevel").value);
 
-    // Getting the desired level from the user
-    while (true) {
-        try {
-            newLevel = parseInt(document.getElementById("new level").value);
-            if (isNaN(newLevel)) throw "Please enter a number...";
-            break;
-        } catch (error) {
-            console.log("Please enter a number...");
+            if (isNaN(level) || isNaN(newLevel)){
+                document.getElementById('result').innerText = "please enter a valid number";
+                return
+            }
+
+    
+    
+            
+        
         }
-    }
+    
 
     // Calculating the total runes required
     for (let i = 0; i < (newLevel - level); i++) {
@@ -53,7 +48,7 @@
         total += runeCost;
     }
 
-    console.log(`You need ${Math.floor(total)} runes to get to level ${newLevel}`);
+    document.getElementById('result').innerText = "You need "+total+" runes to get to level "+newLevel;
 
     // Asking if the user wants another calculation
     let userInput = prompt("Would you like another calculation? (yes/no)").toLowerCase();
