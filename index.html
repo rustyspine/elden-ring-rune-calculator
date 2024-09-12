@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Rune Calculator</title>
 </head>
 <body>
 
@@ -13,39 +13,36 @@
     <label for="newLevel">Enter target level:</label>
     <input type="number" id="newLevel" required><br>
 
-    <button onclick="calculateSum()">Calculate Sum</button>
+    <button onclick="calculateSum()">Calculate Runes</button>
 
-    <div id= "result"></div>
+    <div id="result"></div>
+
     <script>
         function calculateSum() {
-    let x = 0;
-    let total = 0;
-    let level, newLevel;
+            let x = 0;
+            let total = 0;
+            let level = parseInt(document.getElementById("level").value);
+            let newLevel = parseInt(document.getElementById("newLevel").value);
 
-    // Getting the current level from the user
-    
-            level = parseInt(document.getElementById("level").value);
-            newLevel = parseInt(document.getElementById("newLevel").value);
-
-            if (isNaN(level) || isNaN(newLevel)){
-                document.getElementById('result').innerText = "please enter a valid number";
-                return
+            // Validate input
+            if (isNaN(level) || isNaN(newLevel) || newLevel <= level) {
+                document.getElementById('result').innerText = "Please enter valid levels.";
+                return;
             }
+
+            // Calculating the total runes required
+            for (let i = 0; i < (newLevel - level); i++) {
+                x = ((level + 81) - 92) * 0.02;
+                if (x < 0) x = 0;
+                let runeCost = Math.floor(((x + 0.1) * Math.pow((level + 81), 2)) + 1);
+                level += 1;
+                total += runeCost;
+            }
+
+            // Display the result
+            document.getElementById('result').innerText = `You need ${total} runes to get to level ${newLevel}.`;
         }
-    
-    // Calculating the total runes required
-    for (let i = 0; i < (newLevel - level); i++) {
-        x = ((level + 81) - 92) * 0.02;
-        if (x < 0) x = 0;
-        let runeCost = Math.floor(((x + 0.1) * Math.pow((level + 81), 2)) + 1);
-        level += 1;
-        total += runeCost;
-    }
-
-    document.getElementById('result').innerText = ("You need "+total+" runes to get to level "+newLevel);
-
     </script>
-    
-    
+
 </body>
 </html>
