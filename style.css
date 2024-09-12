@@ -1,8 +1,78 @@
-body{
-    color: purple;
-    font-size: xx-large;
+/* style.css */
+body {
+    background-image: url('images/background.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    font-family: 'Cinzel', serif; /* Gothic/Medieval-inspired font */
+    color: #f0e5d8; /* Light text for contrast */
+   
+    
 }
-p{
-    color: purple;
-    font-size: xx-large;
+
+
+
+
+/* Styling for labels and inputs */
+.special {
+    font-size: 1.2em;
+    color: #c0b283;
+    font-weight: bold;
+    letter-spacing: 1px;
+    
+}
+.box{
+    position: absolute;
+    top: 20%;
+    left: 37%;
+    text-align: center;
+    background-color: #1b1b1b;
+    border: #4b371c;
+    border-radius: 10px;
+    padding: 10px;
+    width: 400px;
+}
+
+label {
+    margin-bottom: 10px;
+    display: inline-block;
+}
+
+input[type="number"] {
+    background-color: #1b1b1b; /* Dark background */
+    border: 2px solid #c0b283; /* Light medieval-looking border */
+    border-radius: 8px;
+    padding: 10px;
+    color: #f0e5d8;
+    font-size: 1em;
+    width: 100px;
+    margin-bottom: 20px;
+}
+
+input[type="number"]:focus {
+    outline: none;
+    border-color: #9b7653; /* Darker brown on focus */
+}
+
+/* Button styles */
+button {
+    background-color: #4b371c; /* Dark brown medieval button */
+    border: 2px solid #9b7653;
+    color: #f0e5d8;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 1.2em;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #3a2a16; /* Darker hover state */
+}
+
+/* Result styling */
+#result {
+    margin-top: 20px;
+    font-size: 1.2em;
+    color: #c0b283;
 }

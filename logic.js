@@ -19,6 +19,8 @@ function calculateSum() {
         total += runeCost;
     }
 
+    let formattedTotal = total.toLocaleString();
+
     // Display the result
-    document.getElementById('result').innerText = `You need ${total} runes to get to level ${newLevel}.`;
+    document.getElementById('result').innerText = `You need ${formattedTotal} runes to get to level ${newLevel}.`;
 }
