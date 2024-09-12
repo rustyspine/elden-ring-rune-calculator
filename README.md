@@ -1,1 +1,1 @@
-elden-ring-rune-calculator.git.io
+rustyspine/elden-ring-rune-calculator.github.io
